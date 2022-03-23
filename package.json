@@ -2,7 +2,7 @@
   "name": "hardhat-project",
   "scripts": {
     "postci": "yarn compile",
-    "ci":"yarn install --immutable --immutable-cache --check-cache",
+    "ci": "yarn install --immutable --immutable-cache --check-cache",
     "compile": "npx hardhat compile",
     "node:local": "hardhat node",
     "test": "hardhat test",
@@ -27,5 +27,8 @@
     "ts-node": "^10.7.0",
     "typechain": "^7.0.1",
     "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0"
   }
 }

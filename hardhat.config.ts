@@ -4,6 +4,10 @@ import '@typechain/hardhat';
 import '@nomiclabs/hardhat-ethers';
 import 'solidity-coverage';
 import './tasks';
+import 'dotenv/config';
+
+const rinkeby_url = process.env.RINKEBY_URL;
+const account_private_key = process.env.ACCOUNT_PRIVATE_KEY as string;
 
 const config: HardhatUserConfig = {
 	defaultNetwork: 'hardhat',
@@ -27,10 +31,8 @@ const config: HardhatUserConfig = {
 			],
 		},
 		rinkeby: {
-			url: 'https://rinkeby.infura.io/v3/13b8fd805c9a42e2b43bda6d40f5f380',
-			accounts: [
-				'e14612a6bd49583d27e881fcc904f341ab56af7dc0f0eface3d3d80855c747fd',
-			],
+			url: rinkeby_url,
+			accounts: [account_private_key],
 		},
 	},
 };

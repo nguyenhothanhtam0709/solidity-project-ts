@@ -17,6 +17,11 @@ yarn ci
 # compile solidity smart contract
 yarn compile
 ```
+Creating and *.env* file like *.env.example* file
+```bash
+RINKEBY_URL=  # rinkeby endpoint
+ACCOUNT_PRIVATE_KEY= # private key of account using to deploy
+```
 
 # Scripts
 ## Testing
