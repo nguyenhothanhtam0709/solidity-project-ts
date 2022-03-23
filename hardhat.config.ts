@@ -1,4 +1,4 @@
-import { HardhatUserConfig } from 'hardhat/types';
+import { HardhatUserConfig, NetworkUserConfig } from 'hardhat/types';
 import '@nomiclabs/hardhat-waffle';
 import '@typechain/hardhat';
 import '@nomiclabs/hardhat-ethers';
@@ -8,6 +8,10 @@ import 'dotenv/config';
 
 const rinkeby_url = process.env.RINKEBY_URL;
 const account_private_key = process.env.ACCOUNT_PRIVATE_KEY as string;
+const rinkeby: NetworkUserConfig = {
+	url: rinkeby_url,
+	accounts: [account_private_key],
+};
 
 const config: HardhatUserConfig = {
 	defaultNetwork: 'hardhat',
@@ -30,10 +34,7 @@ const config: HardhatUserConfig = {
 				'0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80',
 			],
 		},
-		rinkeby: {
-			url: rinkeby_url,
-			accounts: [account_private_key],
-		},
+		...(rinkeby_url && account_private_key && { rinkeby }),
 	},
 };
 
